@@ -37,4 +37,4 @@ public aspect MoneyTransferServiceAspect {
             s.deposit(value);
         }catch(Exception e){}
     }
-}
+}//end of aspect
