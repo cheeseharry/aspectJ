@@ -1,5 +1,6 @@
-public aspect DoubleAmountAspect {
-    // 1 Double the amount of each deposit by doubling the values of the parameter supplied to the deposit method.
+public aspect DoubleAddingAspect {
+
+    // 2 Double the amount of each deposit by adding the deposit amount to the balance in the account
 
     pointcut depositAfter(Account s, double value):
             withincode(public void moneyTransfer(Account, Account, double))
@@ -10,7 +11,7 @@ public aspect DoubleAmountAspect {
     after(Account s, double value):
             depositAfter(s,value) {
         try {
-            s.deposit(value);
+            s.withdraw(-value);
         }catch(Exception e){}
     }
 }
